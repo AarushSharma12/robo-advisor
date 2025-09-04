@@ -1,0 +1,56 @@
+Symbol,Security,GICS_Sector,GICS_Sub_Industry,CIK,Last_Close_Price
+GM,General Motors,Consumer Discretionary,Automobile Manufacturers,1467858,72.04
+F,Ford Motor Company,Consumer Discretionary,Automobile Manufacturers,37996,95.86
+TSLA,Tesla  Inc.,Consumer Discretionary,Automobile Manufacturers,1318605,397.29
+AAPL,Apple Inc.,Information Technology,Technology Hardware  Storage & Peripherals,320193,126.38
+FOXA,Fox Corporation (Class A),Communication Services,Broadcasting,1754301,86.59
+PARA,Paramount Global,Communication Services,Movies & Entertainment,813828,86.03
+IPG,Interpublic Group of Companies (The),Communication Services,Advertising,51644,135.34
+TTWO,Take Two Interactive,Communication Services,Interactive Home Entertainment,946581,101.49
+GOOGL,Alphabet Inc. (Class A),Communication Services,Interactive Media & Services,1652044,359.01
+HLT,Hilton Worldwide,Consumer Discretionary,Hotels  Resorts & Cruise Lines,1585689,165.65
+ROST,Ross Stores,Consumer Discretionary,Apparel Retail,745732,39.29
+GIS,General Mills,Consumer Staples,Packaged Foods & Meats,40704,109.17
+MDLZ,Mondelez International,Consumer Staples,Packaged Foods & Meats,1103982,65.36
+EL,Estae Lauder Companies (The),Consumer Staples,Personal Care Products,1001250,154.02
+KDP,Keurig Dr Pepper,Consumer Staples,Soft Drinks & Non alcoholic Beverages,1418135,137.96
+CPB,Campbells Company (The),Consumer Staples,Packaged Foods & Meats,16732,139.21
+EOG,EOG Resources,Energy,Oil & Gas Exploration & Production,821189,33.2
+XOM,ExxonMobil,Energy,Integrated Oil & Gas,34088,108.69
+CTRA,Coterra,Energy,Oil & Gas Exploration & Production,858470,31.52
+TRGP,Targa Resources,Energy,Oil & Gas Storage & Transportation,1389170,46.56
+OXY,Occidental Petroleum,Energy,Oil & Gas Exploration & Production,797468,41.46
+CME,CME Group,Financials,Financial Exchanges & Data,1156375,37.78
+TROW,T. Rowe Price,Financials,Asset Management & Custody Banks,1113169,39.53
+IVZ,Invesco,Financials,Asset Management & Custody Banks,914208,134.54
+AXP,American Express,Financials,Consumer Finance,4962,117.55
+EG,Everest Group,Financials,Reinsurance,1095073,99.01
+ABT,Abbott Laboratories,Health Care,Health Care Equipment,1800,122.93
+CRL,Charles River Laboratories,Health Care,Life Sciences Tools & Services,1100682,211.28
+WAT,Waters Corporation,Health Care,Life Sciences Tools & Services,1000697,273.69
+A,Agilent Technologies,Health Care,Life Sciences Tools & Services,1090872,275.49
+MOH,Molina Healthcare,Health Care,Managed Health Care,1179929,244.45
+ITW,Illinois Tool Works,Industrials,Industrial Machinery & Supplies & Components,49826,219.67
+AOS,A. O. Smith,Industrials,Building Products,91142,170.74
+ODFL,Old Dominion,Industrials,Cargo Ground Transportation,878927,78.74
+UBER,Uber,Industrials,Passenger Ground Transportation,1543151,193.9
+TT,Trane Technologies,Industrials,Building Products,1466258,183.79
+VRSN,Verisign,Information Technology,Internet Services & Infrastructure,1014473,67.91
+AMD,Advanced Micro Devices,Information Technology,Semiconductors,2488,50.0
+STX,Seagate Technology,Information Technology,Technology Hardware  Storage & Peripherals,1137789,181.65
+WDAY,Workday  Inc.,Information Technology,Application Software,1327811,214.16
+AVY,Avery Dennison,Materials,Paper & Plastic Packaging Products & Materials,8818,45.27
+AMCR,Amcor,Materials,Paper & Plastic Packaging Products & Materials,1748790,82.03
+PPG,PPG Industries,Materials,Specialty Chemicals,79879,70.27
+ECL,Ecolab,Materials,Specialty Chemicals,31462,151.8
+CF,CF Industries,Materials,Fertilizers & Agricultural Chemicals,1324404,85.99
+EXR,Extra Space Storage,Real Estate,Self Storage REITs,1289490,124.52
+VICI,Vici Properties,Real Estate,Hotel & Resort REITs,1705696,21.99
+WY,Weyerhaeuser,Real Estate,Timber REITs,106535,78.83
+BXP,BXP  Inc.,Real Estate,Office REITs,1037540,29.66
+EQIX,Equinix,Real Estate,Data Center REITs,1101239,20.77
+DTE,DTE Energy,Utilities,Multi Utilities,936340,71.23
+EXC,Exelon,Utilities,Electric Utilities,1109357,96.73
+LNT,Alliant Energy,Utilities,Electric Utilities,352541,42.84
+DUK,Duke Energy,Utilities,Electric Utilities,1326160,82.73
+PNW,Pinnacle West Capital,Utilities,Multi Utilities,764622,36.83

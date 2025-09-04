@@ -1,0 +1,223 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Battle for Brilliance 2k25 Robo Advisor Management API",
+    "description": "This API exposes endpoints to manage Robo Advisor Interactions.",
+    "contact": {
+      "name": "Battle for Brilliance",
+      "url": "https://teams.microsoft.com/l/channel/19%3A1ba94c77243b46e8b7bdaefa2badb050%40thread.tacv2/Support%20Hub?groupId=3e891a21-eb86-43f4-a5eb-3bc00ee6a164&tenantId=7521acbc-a68c-41e5-a975-1cf83066dd19",
+      "email": "TechSafari2K25@fmr.com"
+    },
+    "license": {
+      "name": "MIT License",
+      "url": "https://choosealicense.com/licenses/mit/"
+    },
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9090",
+      "description": "Server URL in Development environment"
+    }
+  ],
+  "tags": [
+    {
+      "name": "File Upload APIs",
+      "description": " API to handle multi-file seed uploads"
+    },
+    {
+      "name": "Rebalance Accounts",
+      "description": " Portfolio Rebalance/Management Services"
+    }
+  ],
+  "paths": {
+    "/upload": {
+      "post": {
+        "tags": [
+          "File Upload APIs"
+        ],
+        "summary": "Handle Incoming Seed Data",
+        "description": "Acknowledge receipt of Seed Data",
+        "operationId": "handleSeedFile",
+        "parameters": [
+          {
+            "name": "requestIdentifier",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "file"
+                ],
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "FILE_RECEIVED",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unable to process the Incoming Seed data",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rebalance": {
+      "post": {
+        "tags": [
+          "Rebalance Accounts"
+        ],
+        "summary": "Rebalance given Accounts",
+        "description": "Returns generated orders for each account",
+        "operationId": "handleRebalanceRequest",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RebalanceRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Rebalance Request Accepted",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RebalanceResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unable to Acknowledge Rebalance Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RebalanceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": [
+          "File Upload APIs"
+        ],
+        "summary": "Health of the service",
+        "description": "Provide the service status",
+        "operationId": "healthcheck",
+        "responses": {
+          "200": {
+            "description": "Service is Up",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unable to process the request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RequestResponse": {
+        "type": "object",
+        "properties": {
+          "requestIdentifier": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "AccountRebalanceCriterias": {
+        "type": "object",
+        "properties": {
+          "attribute": {
+            "type": "string"
+          },
+          "operator": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "RebalanceRequest": {
+        "type": "object",
+        "properties": {
+          "requestIdentifier": {
+            "type": "string"
+          },
+          "rebalanceCriteria": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccountRebalanceCriterias"
+            }
+          }
+        }
+      },
+      "RebalanceResponse": {
+        "type": "object",
+        "properties": {
+          "requestIdentifier": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

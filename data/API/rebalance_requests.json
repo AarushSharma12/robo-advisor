@@ -1,0 +1,2117 @@
+[
+  {
+    "requestIdentifier": "c48cd16f-ed5c-426e-a53e-c214e9136055",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "timeHorizon",
+        "operator": "!=",
+        "value": "Short-term"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Conservative"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "NY"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "!=",
+        "value": "Short-term"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "d218e191-02b6-4c47-beae-469fb759135b",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Brewers"
+      },
+      {
+        "attribute": "state",
+        "operator": "!=",
+        "value": "TN"
+      },
+      {
+        "attribute": "dependents",
+        "operator": "<=",
+        "value": "2"
+      },
+      {
+        "attribute": "maritalStatus",
+        "operator": "=",
+        "value": "Single"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "f238baca-9bfb-4f55-83e9-2c6f08d11f31",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "dependents",
+        "operator": "=",
+        "value": "3"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "=",
+        "value": "Retirement"
+      },
+      {
+        "attribute": "investmentExperience",
+        "operator": "=",
+        "value": "None"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "!=",
+        "value": "Philanthropy"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "4d60976c-fa4f-4b11-8676-d2fed639ad64",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "investmentGoals",
+        "operator": "=",
+        "value": "Education"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Copper"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "c9e697e9-5c20-4484-b4fb-e4b774742181",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "!=",
+        "value": "Short-Term (3-12 months)"
+      },
+      {
+        "attribute": "age",
+        "operator": "<=",
+        "value": "37"
+      },
+      {
+        "attribute": "state",
+        "operator": "!=",
+        "value": "DE"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "WA"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "7a52e241-4785-488d-91af-b324d28b1549",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Diversified Banks"
+      },
+      {
+        "attribute": "maritalStatus",
+        "operator": "!=",
+        "value": "Married"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "9a188dbc-86a4-4328-899d-2578f30cf387",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "residencyZip",
+        "operator": "=",
+        "value": "89702"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "!=",
+        "value": "48205"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "!=",
+        "value": "Short-term"
+      },
+      {
+        "attribute": "maritalStatus",
+        "operator": "!=",
+        "value": "Single"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "5cc0dd8a-628d-420a-9769-78969c84957c",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "OH"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": ">",
+        "value": "755984.0"
+      },
+      {
+        "attribute": "dependents",
+        "operator": "!=",
+        "value": "4"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "73790a19-39d6-4e3d-bc9d-5750b9821952",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Automotive Retail"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Life & Health Insurance"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "!=",
+        "value": "Short-term"
+      },
+      {
+        "attribute": "taxStatus",
+        "operator": "=",
+        "value": "Tax-deferred"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "2cc6b76b-5b7f-47a1-a68b-92486db7f1bb",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "taxStatus",
+        "operator": "!=",
+        "value": "Tax-deferred"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "VT"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Semiconductors"
+      },
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "=",
+        "value": "Long-Term (5+ years)"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "f7b00ac3-ce7e-452a-9ae7-fd26551e0691",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Footwear"
+      },
+      {
+        "attribute": "taxStatus",
+        "operator": "!=",
+        "value": "Tax-deferred"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "ad4bfe4e-1d6c-4400-ab25-3a66ec2b36ac",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "dependents",
+        "operator": ">",
+        "value": "3"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "=",
+        "value": "Retirement"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "=",
+        "value": "Long-term"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "!=",
+        "value": "Income"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "235cb320-2c9e-4525-af31-b36bb21db647",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "!=",
+        "value": "ID"
+      },
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "!=",
+        "value": "Medium-Term (1-5 years)"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Specialty Chemicals"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "a6893078-5ddd-4a47-b8c6-023f5a02c1b7",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "age",
+        "operator": ">=",
+        "value": "40"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "=",
+        "value": "03102"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "f2e7afe1-9e2a-4295-b612-3186a3420ef2",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "AR"
+      },
+      {
+        "attribute": "age",
+        "operator": ">",
+        "value": "46"
+      },
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "=",
+        "value": "Medium-Term (1-5 years)"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "c8bd4bee-21ea-4c2b-8099-be12596d11c5",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "RI"
+      },
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "!=",
+        "value": "Long-Term (5+ years)"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "=",
+        "value": "Short-term"
+      },
+      {
+        "attribute": "dependents",
+        "operator": "!=",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "cb01eb21-d69f-4a04-899d-44e06eb8a746",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "taxStatus",
+        "operator": "!=",
+        "value": "Tax-deferred"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Moderate"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Health Care Technology"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "1c4d2c3a-4124-4f90-b478-036c57071e02",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Passenger Airlines"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "!=",
+        "value": "Income"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "de151a5b-9f6f-4124-a2d3-0168c935e4c0",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "maritalStatus",
+        "operator": "!=",
+        "value": "Married"
+      },
+      {
+        "attribute": "age",
+        "operator": "=",
+        "value": "47"
+      },
+      {
+        "attribute": "state",
+        "operator": "!=",
+        "value": "MI"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "3a8f08e2-fb07-4536-aacf-07f8e978cb47",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "!=",
+        "value": "MO"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Research & Consulting Services"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Biotechnology"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "=",
+        "value": "Retirement"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "43ba8541-e7f1-41c5-abb7-30b6abe3c2a6",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Leisure Products"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Transaction & Payment Processing Services"
+      },
+      {
+        "attribute": "investmentExperience",
+        "operator": "!=",
+        "value": "Sophisticated"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "47fe04d7-0404-49ff-94ba-420bfb7f6764",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "CT"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "=",
+        "value": "Income"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "fdf21a60-c0ec-48c0-a527-95b805233d17",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "riskTolerance",
+        "operator": "=",
+        "value": "Conservative"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Aggressive"
+      },
+      {
+        "attribute": "age",
+        "operator": "=",
+        "value": "47"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "01fde23f-6fdd-40fe-92e2-ce510d52b61c",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "annualIncome",
+        "operator": "!=",
+        "value": "481650.0"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Broadcasting"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "79dfcfea-4a79-4de9-8202-27834097e9ae",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Health Care Technology"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "!=",
+        "value": "Philanthropy"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "30ac47aa-f170-491e-925a-3a8a89a76b29",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "WA"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Interactive Media & Services"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "=",
+        "value": "Short-term"
+      },
+      {
+        "attribute": "investmentExperience",
+        "operator": "!=",
+        "value": "Moderate"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "a7a351bb-105f-4bdf-a0e3-f37dc3cad79b",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "investmentExperience",
+        "operator": "=",
+        "value": "Moderate"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": ">=",
+        "value": "266745.0"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Heavy Electrical Equipment"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "552b22c0-6200-4d06-9d2a-3f3602398a30",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "annualIncome",
+        "operator": "<=",
+        "value": "594198.0"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Moderate"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Industrial REITs"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "4b6528f5-c369-4be3-81c5-72d3c2a0516c",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "MS"
+      },
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "!=",
+        "value": "Medium-Term (1-5 years)"
+      },
+      {
+        "attribute": "age",
+        "operator": ">",
+        "value": "53"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "bfd54574-7d64-4fc1-b997-cca106bad635",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "residencyZip",
+        "operator": "!=",
+        "value": "03110"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": ">=",
+        "value": "255224.0"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Moderate"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Agricultural & Farm Machinery"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "6a9a38c2-6c9a-4b0e-939e-17a7cf61d827",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "annualIncome",
+        "operator": "!=",
+        "value": "481650.0"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "=",
+        "value": "23221"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "!=",
+        "value": "Philanthropy"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "30f58729-3fac-4c85-8295-f340df1c0001",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Semiconductors"
+      },
+      {
+        "attribute": "dependents",
+        "operator": "<",
+        "value": "1"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Oil & Gas Refining & Marketing"
+      },
+      {
+        "attribute": "investmentExperience",
+        "operator": "!=",
+        "value": "Professional"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "b8833a3b-b7da-478a-886c-3f06d262630c",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Industrial Machinery & Supplies & Components"
+      },
+      {
+        "attribute": "dependents",
+        "operator": "<",
+        "value": "2"
+      },
+      {
+        "attribute": "taxStatus",
+        "operator": "!=",
+        "value": "Taxable"
+      },
+      {
+        "attribute": "age",
+        "operator": "<",
+        "value": "51"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "d1d3c226-27f7-4c06-aefe-2a08f4cd8d36",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "age",
+        "operator": "=",
+        "value": "47"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "!=",
+        "value": "83703"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "!=",
+        "value": "Education"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "6b528574-3cb8-4939-8365-e92cc9ddf63e",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "residencyZip",
+        "operator": "=",
+        "value": "96807"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "53d11a83-f3a2-4b98-aad2-7fba38e22529",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "investmentGoals",
+        "operator": "=",
+        "value": "Education"
+      },
+      {
+        "attribute": "maritalStatus",
+        "operator": "!=",
+        "value": "Single"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "UT"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "e10585d9-c744-420b-8f58-9419640e3cb4",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Interactive Media & Services"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "=",
+        "value": "Medium-term"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": ">",
+        "value": "251247.0"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "c988ea05-bdb4-4989-a51a-d1cba32f5060",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "investmentGoals",
+        "operator": "=",
+        "value": "Education"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "=",
+        "value": "40205"
+      },
+      {
+        "attribute": "investmentExperience",
+        "operator": "!=",
+        "value": "None"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "e63f8e80-d1d8-49c4-91e0-fa63aececd6a",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "age",
+        "operator": "=",
+        "value": "47"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "=",
+        "value": "Conservative"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": "!=",
+        "value": "481650.0"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "0cef7402-6ea1-4cf8-b170-14d3939146cb",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "annualIncome",
+        "operator": ">",
+        "value": "367692.0"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": "!=",
+        "value": "481650.0"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Retail REITs"
+      },
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "!=",
+        "value": "Short-Term (3-12 months)"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "b19c3b54-f5eb-462f-be3a-797b6d538a6b",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "KY"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Trading Companies & Distributors"
+      },
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "=",
+        "value": "Immediate (0-3 months)"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Moderate"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "04c62ac9-73c7-47c3-a829-ddf7692252b2",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Aggressive"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "!=",
+        "value": "Long-term"
+      },
+      {
+        "attribute": "age",
+        "operator": "!=",
+        "value": "47"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Technology Hardware, Storage & Peripherals"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "f3874d1e-a903-4ae9-8a05-f4245f3e021c",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "ME"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Aggressive"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "=",
+        "value": "Medium-term"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "47185695-2cda-4c44-8053-923397229f08",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "investmentGoals",
+        "operator": "=",
+        "value": "Education"
+      },
+      {
+        "attribute": "age",
+        "operator": ">",
+        "value": "39"
+      },
+      {
+        "attribute": "taxStatus",
+        "operator": "=",
+        "value": "Taxable"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Restaurants"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "b82450b9-e8b2-4c50-be5b-c26283d3b180",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "dependents",
+        "operator": ">=",
+        "value": "2"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Steel"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "b6546ad1-d31a-4928-9bda-b755fb68df8e",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "investmentExperience",
+        "operator": "=",
+        "value": "Professional"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "SC"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "41066f2c-1fa5-49ba-b896-0602587f6be3",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "!=",
+        "value": "Immediate (0-3 months)"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Internet Services & Infrastructure"
+      },
+      {
+        "attribute": "dependents",
+        "operator": "!=",
+        "value": "2"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "5695bc11-1701-4fb3-840f-6f432d005881",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "maritalStatus",
+        "operator": "=",
+        "value": "Single"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "AZ"
+      },
+      {
+        "attribute": "investmentExperience",
+        "operator": "!=",
+        "value": "Limited"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "19eb2632-1d28-4b1f-a01c-8babfa251c7c",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "taxStatus",
+        "operator": "=",
+        "value": "Tax-deferred"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "=",
+        "value": "Retirement"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "NC"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "745fa877-efd3-4759-b566-ccd042552148",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "investmentGoals",
+        "operator": "!=",
+        "value": "Income"
+      },
+      {
+        "attribute": "dependents",
+        "operator": "<=",
+        "value": "3"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "OR"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "=",
+        "value": "Medium-term"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "acb57317-1235-4f9b-b44b-2fc5d822877e",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "maritalStatus",
+        "operator": "!=",
+        "value": "Single"
+      },
+      {
+        "attribute": "dependents",
+        "operator": ">=",
+        "value": "2"
+      },
+      {
+        "attribute": "taxStatus",
+        "operator": "=",
+        "value": "Tax-deferred"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "NC"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "24cf173b-1257-429a-bdb7-0ace63eb5261",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "dependents",
+        "operator": ">",
+        "value": "1"
+      },
+      {
+        "attribute": "taxStatus",
+        "operator": "=",
+        "value": "Tax-deferred"
+      },
+      {
+        "attribute": "age",
+        "operator": "=",
+        "value": "47"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "4344c2c5-e7ed-462c-b185-c2d803221c43",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Other Specialty Retail"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Aggressive"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "b3710656-28f3-4ed3-851c-7ba9fbbf042e",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Aggressive"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Heavy Electrical Equipment"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "b9fb2f1e-9e46-467e-8bb2-c79ee828f3a6",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "annualIncome",
+        "operator": ">=",
+        "value": "653510.0"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Metal, Glass & Plastic Containers"
+      },
+      {
+        "attribute": "investmentExperience",
+        "operator": "!=",
+        "value": "Moderate"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Oil & Gas Equipment & Services"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "9407ae73-bd9a-494d-9123-ce6d592d24d0",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "UT"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "=",
+        "value": "Conservative"
+      },
+      {
+        "attribute": "maritalStatus",
+        "operator": "=",
+        "value": "Married"
+      },
+      {
+        "attribute": "maritalStatus",
+        "operator": "=",
+        "value": "Married"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "92510161-8e0b-4ec2-9573-f1a8eb16a8b1",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "riskTolerance",
+        "operator": "=",
+        "value": "Moderate"
+      },
+      {
+        "attribute": "age",
+        "operator": "!=",
+        "value": "47"
+      },
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "!=",
+        "value": "Short-Term (3-12 months)"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "MD"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "5c6f78c6-6f84-43af-88b4-413a3a1bc144",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "IN"
+      },
+      {
+        "attribute": "taxStatus",
+        "operator": "=",
+        "value": "Taxable"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "f54395e8-cf49-405e-b6b0-d6c152d7e790",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "dependents",
+        "operator": ">",
+        "value": "1"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Integrated Telecommunication Services"
+      },
+      {
+        "attribute": "investmentExperience",
+        "operator": "!=",
+        "value": "Experienced"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "e3a32e4e-fcc3-4337-aef2-1a5945f1ccbe",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "!=",
+        "value": "Short-Term (3-12 months)"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "SD"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": "<",
+        "value": "245048.0"
+      },
+      {
+        "attribute": "taxStatus",
+        "operator": "=",
+        "value": "Tax-deferred"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "d13c912e-dcab-4c1c-85e2-7f3e8f4855da",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Telecom Tower REITs"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "KY"
+      },
+      {
+        "attribute": "investmentExperience",
+        "operator": "=",
+        "value": "Limited"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "c5504afd-e197-43d8-b730-5dac5bcf314a",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "annualIncome",
+        "operator": "<",
+        "value": "264524.0"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": "<=",
+        "value": "379397.0"
+      },
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "!=",
+        "value": "Medium-Term (1-5 years)"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "=",
+        "value": "83702"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "4896a441-ae99-4b01-9448-4a2195506e5a",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "dependents",
+        "operator": ">",
+        "value": "1"
+      },
+      {
+        "attribute": "dependents",
+        "operator": "!=",
+        "value": "3"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Cargo Ground Transportation"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Aerospace & Defense"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "f8fd1431-07fb-4213-8c0d-a3bb3edf82a6",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "=",
+        "value": "Immediate (0-3 months)"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "DE"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "!=",
+        "value": "Long-term"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "37cb3f00-5339-46dc-981b-8d8a488ce674",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "residencyZip",
+        "operator": "=",
+        "value": "63103"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "142bec40-26fe-4d00-a4a9-ac7b3c3ce69e",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Asset Management & Custody Banks"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": ">=",
+        "value": "256220.0"
+      },
+      {
+        "attribute": "age",
+        "operator": ">=",
+        "value": "51"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "26d2696e-43a0-41c0-9ede-de147a4201c5",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Moderate"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Aggressive"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Aggressive"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Asset Management & Custody Banks"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "672d9143-9366-45fe-9126-a6c2d922e39a",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "annualIncome",
+        "operator": "<=",
+        "value": "585088.0"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": "!=",
+        "value": "481650.0"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "=",
+        "value": "83001"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "8e4e9b3c-3b1c-4d97-a997-25498d5cede9",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "MD"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "!=",
+        "value": "50301"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "=",
+        "value": "Conservative"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "aa566475-5290-4bb6-a6b4-38ca310c8e17",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "residencyZip",
+        "operator": "=",
+        "value": "02801"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": ">=",
+        "value": "263269.0"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "!=",
+        "value": "83701"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "3b29dc3e-aac8-4f60-98fb-25125784992b",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Integrated Telecommunication Services"
+      },
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "!=",
+        "value": "Short-Term (3-12 months)"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "=",
+        "value": "Income"
+      },
+      {
+        "attribute": "state",
+        "operator": "!=",
+        "value": "TN"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "3128a766-104c-400e-b438-d125fe7dbdeb",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "=",
+        "value": "Immediate (0-3 months)"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "AL"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": "!=",
+        "value": "481650.0"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": "!=",
+        "value": "481650.0"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "6d9a2b23-a50e-44d4-9ca6-07a9838291ce",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "investmentGoals",
+        "operator": "=",
+        "value": "Income"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "VT"
+      },
+      {
+        "attribute": "maritalStatus",
+        "operator": "=",
+        "value": "Married"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "cbdf02cd-af86-4f66-9532-c245168c3ca3",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "investmentExperience",
+        "operator": "!=",
+        "value": "Moderate"
+      },
+      {
+        "attribute": "taxStatus",
+        "operator": "=",
+        "value": "Taxable"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Distillers & Vintners"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "!=",
+        "value": "Philanthropy"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "931efc75-03d7-4e61-bee9-e583a5d36711",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "age",
+        "operator": "=",
+        "value": "47"
+      },
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "!=",
+        "value": "Short-Term (3-12 months)"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "0d9ffaff-2425-458c-b357-a8b58a5145a7",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "age",
+        "operator": "=",
+        "value": "47"
+      },
+      {
+        "attribute": "taxStatus",
+        "operator": "=",
+        "value": "Taxable"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Advertising"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": "!=",
+        "value": "481650.0"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "efffb194-7ec1-48a7-bbc0-b74814454947",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "investmentGoals",
+        "operator": "!=",
+        "value": "Education"
+      },
+      {
+        "attribute": "taxStatus",
+        "operator": "!=",
+        "value": "Taxable"
+      },
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "!=",
+        "value": "Immediate (0-3 months)"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "TN"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "799b7a06-0e23-4a9f-a25b-259cd1d6a0d8",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "!=",
+        "value": "NH"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": ">=",
+        "value": "291056.0"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "OK"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Conservative"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "fc24de65-21ed-4222-827e-d5340381d92f",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Integrated Telecommunication Services"
+      },
+      {
+        "attribute": "investmentGoals",
+        "operator": "=",
+        "value": "Education"
+      },
+      {
+        "attribute": "dependents",
+        "operator": "!=",
+        "value": "2"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "d325f676-4d45-44d1-9790-0a26d131704f",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "residencyZip",
+        "operator": "!=",
+        "value": "52801"
+      },
+      {
+        "attribute": "state",
+        "operator": "!=",
+        "value": "CO"
+      },
+      {
+        "attribute": "age",
+        "operator": "=",
+        "value": "47"
+      },
+      {
+        "attribute": "maritalStatus",
+        "operator": "=",
+        "value": "Single"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "554bebd2-c41b-4a8b-825d-a8d7031b7974",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "MN"
+      },
+      {
+        "attribute": "maritalStatus",
+        "operator": "!=",
+        "value": "Single"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "!=",
+        "value": "Long-term"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "9f1a4f47-a53b-4bfa-a296-e2cd5abf5c5e",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "annualIncome",
+        "operator": "<=",
+        "value": "275844.0"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Agricultural Products & Services"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "fd35e215-5946-4f04-803e-40ba18e54b39",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "=",
+        "value": "Medium-Term (1-5 years)"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "!=",
+        "value": "89105"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "!=",
+        "value": "Medium-term"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Industrial Machinery & Supplies & Components"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "321e95bc-364a-470a-97b4-73655f88f7ad",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "residencyZip",
+        "operator": "!=",
+        "value": "84103"
+      },
+      {
+        "attribute": "maritalStatus",
+        "operator": "=",
+        "value": "Married"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": ">",
+        "value": "791333.0"
+      },
+      {
+        "attribute": "age",
+        "operator": "=",
+        "value": "47"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "f132983d-ba99-4fb5-894f-5c763c3fb6c6",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "age",
+        "operator": "!=",
+        "value": "47"
+      },
+      {
+        "attribute": "age",
+        "operator": "<=",
+        "value": "45"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Integrated Telecommunication Services"
+      },
+      {
+        "attribute": "maritalStatus",
+        "operator": "=",
+        "value": "Single"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "bbadbdde-f977-4de6-9fb6-1e7dbda35b41",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "state",
+        "operator": "!=",
+        "value": "DE"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "=",
+        "value": "Long-term"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Agricultural Products & Services"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "WY"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "ccd42ca6-3202-46ea-a0bf-8d3b179d4d79",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "dependents",
+        "operator": "<",
+        "value": "1"
+      },
+      {
+        "attribute": "age",
+        "operator": ">",
+        "value": "41"
+      },
+      {
+        "attribute": "investmentExperience",
+        "operator": "=",
+        "value": "None"
+      },
+      {
+        "attribute": "liquidityNeeds",
+        "operator": "!=",
+        "value": "Long-Term (5+ years)"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "3b8b917c-efa7-4cd3-9b82-0acfb4f47e7d",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "investmentGoals",
+        "operator": "!=",
+        "value": "Retirement"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Self-Storage REITs"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "!=",
+        "value": "74102"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "3bda111f-3751-49bb-82a5-881b8e85dcd6",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "taxStatus",
+        "operator": "=",
+        "value": "Taxable"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "OH"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "!=",
+        "value": "19102"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "084e00d8-d64c-4a14-b2b3-edf8b597244b",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "maritalStatus",
+        "operator": "=",
+        "value": "Married"
+      },
+      {
+        "attribute": "taxStatus",
+        "operator": "=",
+        "value": "Tax-deferred"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "MD"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "08cb9b00-5881-4282-8e98-12554b62f188",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "maritalStatus",
+        "operator": "!=",
+        "value": "Married"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Leisure Products"
+      },
+      {
+        "attribute": "age",
+        "operator": "=",
+        "value": "47"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "!=",
+        "value": "Short-term"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "cc738dcd-2c62-48d4-bbd4-368a91f2d113",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "dependents",
+        "operator": "=",
+        "value": "1"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "NC"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "bb5a8515-b40b-4297-9062-7ecdd7269bc8",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "taxStatus",
+        "operator": "!=",
+        "value": "Taxable"
+      },
+      {
+        "attribute": "dependents",
+        "operator": "!=",
+        "value": "3"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "=",
+        "value": "32802"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "0fe5d096-b949-4371-a39d-be7fba38d73d",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "age",
+        "operator": "!=",
+        "value": "47"
+      },
+      {
+        "attribute": "age",
+        "operator": ">=",
+        "value": "51"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "!=",
+        "value": "Moderate"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "AZ"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "641afe03-e467-4d92-a1a5-e96af8fb55c5",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "investmentGoals",
+        "operator": "=",
+        "value": "Retirement"
+      },
+      {
+        "attribute": "investmentExperience",
+        "operator": "=",
+        "value": "Experienced"
+      },
+      {
+        "attribute": "riskTolerance",
+        "operator": "=",
+        "value": "Aggressive"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": ">",
+        "value": "718692.0"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "78d9a211-81c6-44ef-ac26-39915a50d271",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "maritalStatus",
+        "operator": "!=",
+        "value": "Married"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Human Resource & Employment Services"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "SC"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "4d746a75-103d-4aa3-9ba4-c03f13bd385d",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "residencyZip",
+        "operator": "!=",
+        "value": "05404"
+      },
+      {
+        "attribute": "clientIndustry",
+        "operator": "=",
+        "value": "Broadcasting"
+      },
+      {
+        "attribute": "timeHorizon",
+        "operator": "!=",
+        "value": "Short-term"
+      },
+      {
+        "attribute": "annualIncome",
+        "operator": ">",
+        "value": "433324.0"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "58e63835-5c32-4256-adbb-4d2a509746a0",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "age",
+        "operator": "<=",
+        "value": "61"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "!=",
+        "value": "55401"
+      },
+      {
+        "attribute": "maritalStatus",
+        "operator": "=",
+        "value": "Single"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "=",
+        "value": "99201"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "1e6f3cc1-0d32-48e7-a22f-ec7e27a625d7",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "clientIndustry",
+        "operator": "!=",
+        "value": "Footwear"
+      },
+      {
+        "attribute": "taxStatus",
+        "operator": "=",
+        "value": "Tax-deferred"
+      },
+      {
+        "attribute": "residencyZip",
+        "operator": "=",
+        "value": "05401"
+      }
+    ]
+  },
+  {
+    "requestIdentifier": "d6b908fe-2270-4eac-9b4b-c5d0db52f42a",
+    "accountRebalanceCriterias": [
+      {
+        "attribute": "dependents",
+        "operator": "=",
+        "value": "2"
+      },
+      {
+        "attribute": "state",
+        "operator": "=",
+        "value": "KS"
+      }
+    ]
+  }
+]
