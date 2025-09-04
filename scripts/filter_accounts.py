@@ -26,7 +26,7 @@ class RebalanceFilter:
         print(f"Loaded {len(self.accounts_df)} customer accounts.")
         print(f"Loaded {len(self.requests)} rebalance requests.")
 
-    def process_single_request(self, request_id: str, save_output: bool = True) -> Dict:
+    def process_single_request(self, request_id: str) -> Dict:
         target_request = None
         for request in self.requests:
             if request["requestIdentifier"] == request_id:
@@ -41,23 +41,24 @@ class RebalanceFilter:
             target_request["accountRebalanceCriterias"]
         )
 
-        summary = self.processor.get_account_summary(filtered_df)
+        if not filtered_df.empty:
+            print(
+                f"Filtered accounts for request ID '{request_id}': {len(filtered_df)} matched."
+            )
 
-        if save_output and not filtered_df.empty:
-            filename = f"filtered_accounts_{request_id[:8]}.csv"
-            output_path = self.loader.save_results(filtered_df, filename)
-            summary["output_file"] = str(output_path)
+        return {
+            "count": len(filtered_df),
+            "accounts": filtered_df["Account_ID"].tolist(),
+        }
 
-        return summary
-
-    def process_all_requests(self, save_outputs: bool = True) -> Dict:
+    def process_all_requests(self) -> Dict:
         results = {}
 
         for request in self.requests:
             request_id = request["requestIdentifier"]
             print(f"Processing request ID: {request_id}")
 
-            result = self.process_single_request(request_id, save_outputs)
+            result = self.process_single_request(request_id)
             results[request_id] = result
 
             if "error" not in result:
@@ -83,9 +84,7 @@ class RebalanceFilter:
 
         return self.processor.merge_with_holdings(filtered_accounts, self.holdings_df)
 
-    def get_holdings_for_accounts(
-        self, request_id: str, save_output: bool = True
-    ) -> Dict:
+    def get_holdings_for_accounts(self, request_id: str) -> Dict:
         target_request = None
         for request in self.requests:
             if request["requestIdentifier"] == request_id:
@@ -101,10 +100,6 @@ class RebalanceFilter:
 
         if filtered_accounts.empty:
             return {"error": "No accounts matched the criteria"}
-
-        summary = self.processor.get_holdings_summary(
-            filtered_accounts, self.holdings_df
-        )
 
         account_ids = filtered_accounts["Account_ID"].tolist()
         account_holdings = {}
@@ -123,17 +118,8 @@ class RebalanceFilter:
         result = {
             "request_id": request_id,
             "matched_accounts": len(account_ids),
-            "summary": summary,
             "account_holdings": account_holdings,
         }
-
-        if save_output:
-            merged_df = self.processor.merge_with_holdings(
-                filtered_accounts, self.holdings_df
-            )
-            filename = f"holdings_{request_id[:8]}.csv"
-            output_path = self.loader.save_results(merged_df, filename)
-            result["output_file"] = str(output_path)
 
         return result
 
@@ -154,16 +140,9 @@ def main():
         print(f"Total Accounts Matched: {result['count']}")
 
         if result["count"] > 0:
-            print(f"\n Risk Tolerance Distribution:")
-            for risk, count in result["statistics"]["risk_distribution"].items():
-                print(f"  {risk}: {count}")
-
-            print(f"\n First 5 Account IDs:")
+            print(f"\nFirst 5 Account IDs:")
             for account_id in result["accounts"][:5]:
                 print(f"  {account_id}")
-
-            if "output_file" in result:
-                print(f"\nFiltered accounts saved to: {result['output_file']}")
 
         print(f"\n{'='*50}")
         print("Processing all requests...")

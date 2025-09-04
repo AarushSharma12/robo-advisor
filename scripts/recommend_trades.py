@@ -3,7 +3,6 @@
 import pandas as pd
 import json
 
-# Load data
 accounts_df = pd.read_csv("data/market_data/customer_accounts.csv")
 holdings_df = pd.read_csv("data/market_data/customer_accounts_holdings.csv")
 market_df = pd.read_csv("data/market_data/market_conditions.csv")
@@ -38,7 +37,6 @@ for _, row in market_df.iterrows():
     elif row["Type"] == "Sector":
         sector_conditions[row["Name"]] = row["Condition"]
 
-# Create ticker to sector mapping
 ticker_to_sector = {}
 for _, row in safari_df.iterrows():
     ticker_to_sector[row["Symbol"]] = row["GICS_Sector"]
@@ -60,7 +58,6 @@ for account_id in filtered["Account_ID"]:
             sector = ticker_to_sector[ticker]
             condition = sector_conditions.get(sector)
 
-        # Determine trade action
         if condition == "Positive":
             trade_action = "BUY"
             trade_qty = current_qty
