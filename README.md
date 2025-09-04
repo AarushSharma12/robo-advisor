@@ -1,15 +1,15 @@
-# Portfolio Rebalancing System
+# Portfolio Trade Recommendation System
 
-An automated Python-based portfolio management system that filters customer accounts, analyzes holdings, and generates actionable trade recommendations based on market conditions and configurable investment criteria.
+An automated Python system that generates actionable buy/sell trade recommendations for customer portfolios based on configurable filtering criteria and real-time market conditions.
 
 ## 🎯 Overview
 
-This system streamlines portfolio rebalancing by:
+This system automates portfolio rebalancing by:
 
-- Processing thousands of customer accounts against complex filtering criteria
-- Analyzing portfolio holdings and market conditions
-- Generating data-driven buy/sell/hold recommendations
-- Outputting structured JSON for downstream trading systems
+- Filtering customer accounts based on investment criteria
+- Analyzing current holdings against market conditions
+- Generating buy/sell recommendations with intelligent sector fallback
+- Exporting structured JSON for execution by trading systems
 
 ## 📁 Project Structure
 
@@ -17,89 +17,78 @@ This system streamlines portfolio rebalancing by:
 fidelity-robo/
 ├── data/
 │   ├── api_data/
-│   │   ├── rebalance_requests.json    # Filter criteria configurations
-│   │   └── robo_advisor.json          # Robo-advisor settings
+│   │   └── rebalance_requests.json      # Filter configurations
 │   └── market_data/
-│       ├── customer_accounts.csv       # Customer profile data
-│       ├── customer_accounts_holdings.csv  # Portfolio holdings
-│       ├── market_conditions.csv       # Market sentiment indicators
-│       └── Safari55.csv                # S&P 500 security metadata & sectors
+│       ├── customer_accounts.csv        # Account profiles
+│       ├── customer_accounts_holdings.csv   # Portfolio positions
+│       ├── market_conditions.csv        # Market sentiment
+│       └── Safari55.csv                 # Security-sector mappings
 ├── scripts/
-│   ├── __init__.py                    # Package initialization
-│   ├── data_loader.py                 # Data I/O utilities
-│   ├── account_processor.py           # Account filtering engine
-│   ├── filter_accounts.py             # Main orchestration module
-│   └── recommend_trades.py            # Trade recommendation generator
+│   ├── recommend_trades.py             # Main execution script
+│   ├── trade_recommender.py            # Core recommendation engine
+│   ├── account_processor.py            # Account filtering logic
+│   └── data_loader.py                  # Data I/O utilities
 ├── output/
-│   └── trade_recommendations.json     # Generated trade signals
-├── LICENSE                             # MIT License
-├── README.md                           # Documentation
-└── requirements.txt                    # Python dependencies
+│   └── trade_recommendations.json      # Generated trade signals
+└── requirements.txt
 ```
 
-## 🚀 Installation
+## 🚀 Quick Start
 
 ```bash
-# Clone repository
-git clone [repository-url]
-cd fidelity-robo
-
-# Create virtual environment
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
 # Install dependencies
 pip install -r requirements.txt
-```
 
-## 💡 Core Features
-
-### 1. **Dynamic Account Filtering**
-
-Apply complex, multi-criteria filters to identify target accounts:
-
-```python
-python scripts/filter_accounts.py
-```
-
-- Supports multiple operators (=, !=, >, <, >=, <=)
-- AND logic for multiple conditions
-- Filters on 15+ attributes (risk tolerance, time horizon, state, income, etc.)
-
-### 2. **Portfolio Holdings Analysis**
-
-View detailed holdings for filtered accounts:
-
-```python
-python scripts/view_holdings.py
-```
-
-- Displays positions, quantities, prices, and total values
-- Links accounts to their complete portfolio data
-
-### 3. **Intelligent Trade Recommendations**
-
-Generate actionable trade signals based on market conditions:
-
-```python
+# Generate trade recommendations
 python scripts/recommend_trades.py
+
+# Output saved to: output/trade_recommendations.json
 ```
 
-- **BUY**: Double position when market condition is positive
-- **SELL**: Liquidate entire position when negative
-- Fallback to sector conditions when security-specific data unavailable
+## 💡 How It Works
 
-## 📊 Data Schema
+1. **Filter Accounts**: Apply multi-criteria filters from JSON configuration
+2. **Analyze Holdings**: Load current portfolio positions for filtered accounts
+3. **Check Market Conditions**: Evaluate each holding against market sentiment
+4. **Generate Trades**:
+   - **BUY**: When condition is Positive (double position)
+   - **SELL**: When condition is Negative (liquidate position)
+   - **Fallback**: Use sector condition if security-specific data unavailable
+5. **Export JSON**: Structured output ready for trading system integration
 
-### Input Files
+## 📊 Data Flow
 
-| File                             | Description           | Key Columns                                                    |
-| -------------------------------- | --------------------- | -------------------------------------------------------------- |
-| `customer_accounts.csv`          | Customer profiles     | Account_ID, Risk_Tolerance, Time_Horizon, State, Annual_Income |
-| `customer_accounts_holdings.csv` | Portfolio positions   | AccountID, Ticker, Qty, Price, PositionTotal                   |
-| `market_conditions.csv`          | Market sentiment      | Type (Sector/Security), Name, Condition (Positive/Negative)    |
-| `Safari55.csv`                   | Security metadata     | Symbol, GICS_Sector, Last_Close_Price                          |
-| `rebalance_requests.json`        | Filter configurations | requestIdentifier, accountRebalanceCriterias                   |
+```
+rebalance_requests.json → Filter Accounts
+                              ↓
+customer_accounts.csv → Filtered Account IDs
+                              ↓
+customer_holdings.csv → Current Positions
+                              ↓
+market_conditions.csv + Safari55.csv → Trade Decisions
+                              ↓
+                    trade_recommendations.json
+```
+
+## 🔧 Configuration
+
+### Filter Criteria (rebalance_requests.json)
+
+```json
+{
+  "requestIdentifier": "unique-id",
+  "accountRebalanceCriterias": [
+    { "attribute": "state", "operator": "=", "value": "NY" },
+    { "attribute": "riskTolerance", "operator": "!=", "value": "Conservative" }
+  ]
+}
+```
+
+### Supported Operators
+
+- `=` (equals)
+- `!=` (not equals)
+- `>`, `<`, `>=`, `<=` (numeric comparisons)
 
 ### Output Format
 
@@ -110,74 +99,34 @@ python scripts/recommend_trades.py
     {
       "Account_ID": "f3feaff86948",
       "trades": [
-        {
-          "Ticker": "AAPL",
-          "Qty": 100,
-          "Recommended_Trade": "BUY"
-        }
+        { "Ticker": "AAPL", "Qty": 100, "Recommended_Trade": "SELL" },
+        { "Ticker": "GOOGL", "Qty": 50, "Recommended_Trade": "BUY" }
       ]
     }
   ]
 }
 ```
 
-## 🔧 Usage Examples
-
-### Basic Workflow
-
-```python
-from scripts.filter_accounts import RebalanceFilter
-
-# Initialize system
-filter_system = RebalanceFilter()
-filter_system.initialize()
-
-# Process specific rebalance request
-request_id = "c48cd16f-ed5c-426e-a53e-c214e9136055"
-result = filter_system.process_single_request(request_id)
-
-# Generate trade recommendations
-# Run: python scripts/recommend_trades.py
-# Output saved to: output/trade_recommendations.json
-```
-
-### Custom Filtering
-
-```python
-from scripts.account_processor import AccountProcessor
-from scripts.data_loader import DataLoader
-
-# Load data
-loader = DataLoader()
-accounts_df = loader.load_customer_accounts()
-processor = AccountProcessor(accounts_df)
-
-# Define custom criteria
-custom_criteria = [
-    {"attribute": "state", "operator": "=", "value": "NY"},
-    {"attribute": "annualIncome", "operator": ">", "value": "100000"},
-    {"attribute": "riskTolerance", "operator": "!=", "value": "Conservative"}
-]
-
-# Apply filters
-filtered_df = processor.filter_by_criteria(custom_criteria)
-```
-
-## 🏗️ Architecture
-
-The system follows a modular design pattern:
-
-1. **Data Layer** (`data_loader.py`): Handles all file I/O operations
-2. **Business Logic** (`account_processor.py`): Core filtering and processing engine
-3. **Orchestration** (`filter_accounts.py`): Coordinates components and workflow
-4. **Analytics** (`recommend_trades.py`): Generates trading signals based on market data
-
 ## 📈 Performance
 
 - Processes 10,000+ accounts in seconds
-- Handles complex multi-criteria filtering efficiently
-- Generates recommendations for entire portfolios in batch
+- Analyzes 500+ securities with sector fallback
+- Generates complete portfolio rebalancing in one execution
+
+## 🛠️ Customization
+
+To process a different request, modify the `REQUEST_ID` in `recommend_trades.py`:
+
+```python
+REQUEST_ID = "your-request-id-here"
+```
+
+## 📋 Requirements
+
+- Python 3.8+
+- pandas 2.1.3
+- numpy 1.24.3
 
 ## 🔐 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE) file
