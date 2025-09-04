@@ -1,11 +1,9 @@
+"""Portfolio rebalancing system."""
+
 from .data_loader import DataLoader
 from .account_processor import AccountProcessor
-from .filter_accounts import RebalanceFilter
+from .trade_recommender import TradeRecommender
 
-__all__ = [
-    "DataLoader",
-    "AccountProcessor",
-    "RebalanceFilter",
-]
+__all__ = ["DataLoader", "AccountProcessor", "TradeRecommender"]
 
-version = "1.0.0"
+__version__ = "1.0.0"

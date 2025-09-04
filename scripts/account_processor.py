@@ -1,8 +1,12 @@
+"""Account filtering engine for processing rebalance criteria."""
+
 import pandas as pd
 from typing import Dict, List, Any
 
 
 class AccountProcessor:
+    """Handles filtering of customer accounts based on criteria."""
+
     ATTRIBUTE_MAPPING = {
         "timeHorizon": "Time_Horizon",
         "riskTolerance": "Risk_Tolerance",
@@ -25,20 +29,20 @@ class AccountProcessor:
 
     def __init__(self, accounts_df: pd.DataFrame):
         self.accounts_df = accounts_df
-        self.original_df = accounts_df.copy()
 
     def map_attribute(self, attribute: str) -> str:
+        """Map JSON attribute name to CSV column name."""
         return self.ATTRIBUTE_MAPPING.get(attribute, attribute)
 
     def apply_single_criteria(
         self, df: pd.DataFrame, criteria: Dict[str, Any]
     ) -> pd.DataFrame:
+        """Apply a single filter criteria to DataFrame."""
         column = self.map_attribute(criteria["attribute"])
         operator = criteria["operator"]
         value = criteria["value"]
 
         if column not in df.columns:
-            print(f"Warning: Column '{column}' not found in DataFrame.")
             return df
 
         if operator == "=":
@@ -46,28 +50,18 @@ class AccountProcessor:
         elif operator == "!=":
             return df[df[column] != value]
         elif operator == ">":
-            return df[df[column] > float(value)]
+            return df[pd.to_numeric(df[column], errors="coerce") > float(value)]
         elif operator == "<":
-            return df[df[column] < float(value)]
+            return df[pd.to_numeric(df[column], errors="coerce") < float(value)]
         elif operator == ">=":
-            return df[df[column] >= float(value)]
+            return df[pd.to_numeric(df[column], errors="coerce") >= float(value)]
         elif operator == "<=":
-            return df[df[column] <= float(value)]
-        elif operator == "in":
-            if isinstance(value, list):
-                return df[df[column].isin(value)]
-            else:
-                return df[df[column] == value]
-        elif operator == "not in":
-            if isinstance(value, list):
-                return df[~df[column].isin(value)]
-            else:
-                return df[df[column] != value]
+            return df[pd.to_numeric(df[column], errors="coerce") <= float(value)]
         else:
-            print(f"Warning: Unsupported operator '{operator}'.")
             return df
 
     def filter_by_criteria(self, criterias: List[Dict[str, Any]]) -> pd.DataFrame:
+        """Apply multiple filter criteria."""
         filtered_df = self.accounts_df.copy()
 
         for criteria in criterias:
@@ -76,17 +70,3 @@ class AccountProcessor:
                 break
 
         return filtered_df
-
-    def merge_with_holdings(
-        self, accounts_df: pd.DataFrame, holdings_df: pd.DataFrame
-    ) -> pd.DataFrame:
-        return pd.merge(
-            accounts_df,
-            holdings_df,
-            left_on="Account_ID",
-            right_on="AccountID",
-            how="left",
-        )
-
-    def reset_filters(self):
-        self.accounts_df = self.original_df.copy()
