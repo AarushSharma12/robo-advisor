@@ -24,7 +24,7 @@ class RebalanceFilter:
         self.requests = self.loader.load_rebalance_requests()
         self.processor = AccountProcessor(self.accounts_df)
         print(f"Loaded {len(self.accounts_df)} customer accounts.")
-        print(f"Loaded {len(self.self.requests)} rebalance requests.")
+        print(f"Loaded {len(self.requests)} rebalance requests.")
 
     def process_single_request(self, request_id: str, save_output: bool = True) -> Dict:
         target_request = None
@@ -38,7 +38,7 @@ class RebalanceFilter:
             return {"error": "Request ID not found"}
 
         filtered_df = self.processor.filter_by_criteria(
-            target_request["accountRestrictionCriterias"]
+            target_request["accountRebalanceCriterias"]
         )
 
         summary = self.processor.get_account_summary(filtered_df)
@@ -50,14 +50,14 @@ class RebalanceFilter:
 
         return summary
 
-    def process_all_requests(self, save_output: bool = True) -> Dict:
+    def process_all_requests(self, save_outputs: bool = True) -> Dict:
         results = {}
 
         for request in self.requests:
             request_id = request["requestIdentifier"]
             print(f"Processing request ID: {request_id}")
 
-            result = self.process_single_request(request_id, save_output)
+            result = self.process_single_request(request_id, save_outputs)
             results[request_id] = result
 
             if "error" not in result:
@@ -83,32 +83,33 @@ class RebalanceFilter:
 
         return self.processor.merge_with_holdings(filtered_accounts, self.holdings_df)
 
-    def main():
-        filter_system = RebalanceFilter()
-        filter_system.initialize()
 
-        request_id = "c48cd16f-ed5c-426e-a53e-c214e9136055"
-        print(f"\n{'='*50}")
-        print(f"Processing Request ID: {request_id}")
-        print(f"{'='*50}")
+def main():
+    filter_system = RebalanceFilter()
+    filter_system.initialize()
 
-        result = filter_system.process_single_request(request_id)
+    request_id = "c48cd16f-ed5c-426e-a53e-c214e9136055"
+    print(f"\n{'='*50}")
+    print(f"Processing Request ID: {request_id}")
+    print(f"{'='*50}")
 
-        if "error" not in result:
-            print(f"\nResults:")
-            print(f"Total Accounts Matched: {result['count']}")
+    result = filter_system.process_single_request(request_id)
 
-            if result["count"] > 0:
-                print(f"\n Risk Tolerance Distribution:")
-                for risk, count in result["statistics"]["risk_distribution"].items():
-                    print(f"  {risk}: {count}")
+    if "error" not in result:
+        print(f"\nResults:")
+        print(f"Total Accounts Matched: {result['count']}")
 
-                print(f"\n First 5 Account IDs:")
-                for account_id in result["accounts"][:5]:
-                    print(f"  {account_id}")
+        if result["count"] > 0:
+            print(f"\n Risk Tolerance Distribution:")
+            for risk, count in result["statistics"]["risk_distribution"].items():
+                print(f"  {risk}: {count}")
 
-                if "output_file" in result:
-                    print(f"\nFiltered accounts saved to: {result['output_file']}")
+            print(f"\n First 5 Account IDs:")
+            for account_id in result["accounts"][:5]:
+                print(f"  {account_id}")
+
+            if "output_file" in result:
+                print(f"\nFiltered accounts saved to: {result['output_file']}")
 
         print(f"\n{'='*50}")
         print("Processing all requests...")
@@ -129,5 +130,6 @@ class RebalanceFilter:
 
         print(f"\nTotal unique filtered accounts across all requests: {total_accounts}")
 
-    if __name__ == "__main__":
-        main()
+
+if __name__ == "__main__":
+    main()

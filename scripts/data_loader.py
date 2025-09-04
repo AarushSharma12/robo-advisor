@@ -7,7 +7,7 @@ class DataLoader:
     def __init__(self, base_path="."):
         self.base_path = Path(base_path)
         self.data_path = self.base_path / "data"
-        self.api_path = self.data_path / "api"
+        self.api_data_path = self.data_path / "api_data"
         self.market_data_path = self.data_path / "market_data"
 
     def load_customer_accounts(self):
@@ -30,14 +30,14 @@ class DataLoader:
             return json.load(file)
 
     def load_robo_advisor_config(self):
-        file_path = self.api_path / "robo_advisor.json"
+        file_path = self.api_data_path / "robo_advisor.json"
         if not file_path.exists():
             raise FileNotFoundError(f"{file_path} does not exist.")
         with open(file_path, "r") as file:
             return json.load(file)
 
-    def load_maket_conditions(self):
-        file_path = self.market_path / "market_conditions.csv"
+    def load_market_conditions(self):
+        file_path = self.market_data_path / "market_conditions.csv"
         if not file_path.exists():
             raise FileNotFoundError(f"{file_path} does not exist.")
         return pd.read_csv(file_path)
