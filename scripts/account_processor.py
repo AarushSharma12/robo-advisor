@@ -113,7 +113,40 @@ class AccountProcessor:
     def merge_with_holdings(
         self, accounts_df: pd.DataFrame, holdings_df: pd.DataFrame
     ) -> pd.DataFrame:
-        return pd.merge(accounts_df, holdings_df, on="Account_ID", how="left")
+        return pd.merge(
+            accounts_df,
+            holdings_df,
+            left_on="Account_ID",
+            right_on="AccountID",
+            how="left",
+        )
+
+    def get_holdings_summary(
+        self, accounts_df: pd.DataFrame, holdings_df: pd.DataFrame
+    ) -> Dict:
+
+        account_ids = accounts_df["Account_ID"].tolist()
+
+        filtered_holdings = holdings_df[holdings_df["AccountID"].isin(account_ids)]
+
+        if filtered_holdings.empty:
+            return {"total_accounts": len(account_ids), "accounts_with_holdings": 0}
+
+        portfolio_values = filtered_holdings.groupby("AccountID")["PositionTotal"].sum()
+        holdings_count = filtered_holdings.groupby("AccountID")["Ticker"].count()
+
+        summary = {
+            "total_accounts": len(account_ids),
+            "accounts_with_holdings": len(portfolio_values),
+            "avg_portfolio_value": portfolio_values.mean(),
+            "total_portfolio_value": portfolio_values.sum(),
+            "avg_holdings_per_account": holdings_count.mean(),
+            "top_holdings": filtered_holdings.groupby("Ticker")["PositionTotal"]
+            .sum()
+            .nlargest(10)
+            .to_dict(),
+            "portfolio_details": portfolio_values.to_dict(),
+        }
 
     def reset_filters(self):
         self.accounts_df = self.original_df.copy()
