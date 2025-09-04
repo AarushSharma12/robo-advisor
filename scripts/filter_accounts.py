@@ -83,6 +83,60 @@ class RebalanceFilter:
 
         return self.processor.merge_with_holdings(filtered_accounts, self.holdings_df)
 
+    def get_holdings_for_accounts(
+        self, request_id: str, save_output: bool = True
+    ) -> Dict:
+        target_request = None
+        for request in self.requests:
+            if request["requestIdentifier"] == request_id:
+                target_request = request
+                break
+
+        if not target_request:
+            return {"error": "Request ID not found"}
+
+        filtered_accounts = self.processor.filter_by_criteria(
+            target_request["accountRebalanceCriterias"]
+        )
+
+        if filtered_accounts.empty:
+            return {"error": "No accounts matched the criteria"}
+
+        summary = self.processor.get_holdings_summary(
+            filtered_accounts, self.holdings_df
+        )
+
+        account_ids = filtered_accounts["Account_ID"].tolist()
+        account_holdings = {}
+
+        for account_id in account_ids:
+            holdings = self.holdings_df[self.holdings_df["AccountID"] == account_id]
+            if not holdings.empty:
+                account_holdings[account_id] = {
+                    "positions": holdings[
+                        ["Ticker", "Qty", "Price", "PositionTotal"]
+                    ].to_dict("records"),
+                    "total_value": holdings["PositionTotal"].sum(),
+                    "position_count": len(holdings),
+                }
+
+        result = {
+            "request_id": request_id,
+            "matched_accounts": len(account_ids),
+            "summary": summary,
+            "account_holdings": account_holdings,
+        }
+
+        if save_output:
+            merged_df = self.processor.merge_with_holdings(
+                filtered_accounts, self.holdings_df
+            )
+            filename = f"holdings_{request_id[:8]}.csv"
+            output_path = self.loader.save_results(merged_df, filename)
+            result["output_file"] = str(output_path)
+
+        return result
+
 
 def main():
     filter_system = RebalanceFilter()
