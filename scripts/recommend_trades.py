@@ -1,4 +1,4 @@
-"""Generate trade recommendations based on account criteria and market conditions."""
+"""Generate trade recommendations based on market conditions and output as JSON."""
 
 import pandas as pd
 import json
@@ -8,7 +8,6 @@ accounts_df = pd.read_csv("data/market_data/customer_accounts.csv")
 holdings_df = pd.read_csv("data/market_data/customer_accounts_holdings.csv")
 market_df = pd.read_csv("data/market_data/market_conditions.csv")
 safari_df = pd.read_csv("data/market_data/Safari55.csv")
-
 with open("data/api_data/rebalance_requests.json", "r") as f:
     requests = json.load(f)
 
@@ -30,7 +29,7 @@ for criteria in request["accountRebalanceCriterias"]:
     elif criteria["operator"] == "!=":
         filtered = filtered[filtered[col] != criteria["value"]]
 
-# Create lookup for market conditions
+# Create lookups for market conditions
 security_conditions = {}
 sector_conditions = {}
 for _, row in market_df.iterrows():
@@ -44,8 +43,8 @@ ticker_to_sector = {}
 for _, row in safari_df.iterrows():
     ticker_to_sector[row["Symbol"]] = row["GICS_Sector"]
 
-#  Generate trade recommendations
-recommendations = {}
+# Generate trade recommendations
+accounts_list = []
 
 for account_id in filtered["Account_ID"]:
     account_holdings = holdings_df[holdings_df["AccountID"] == account_id]
@@ -54,13 +53,14 @@ for account_id in filtered["Account_ID"]:
     for _, row in account_holdings.iterrows():
         ticker = row["Ticker"]
         current_qty = row["Qty"]
-        # Check secuirty condition first
-        condition = sector_conditions.get(ticker)
+
+        # Check security condition first, then sector as fallback
+        condition = security_conditions.get(ticker)
         if not condition and ticker in ticker_to_sector:
             sector = ticker_to_sector[ticker]
             condition = sector_conditions.get(sector)
 
-        # Determine trade
+        # Determine trade action
         if condition == "Positive":
             trade_action = "BUY"
             trade_qty = current_qty
@@ -82,13 +82,18 @@ for account_id in filtered["Account_ID"]:
                 }
             )
 
-    recommendations[account_id] = account_trades
+    accounts_list.append({"Account_ID": account_id, "trades": account_trades})
 
-with open("output/recommendations.json", "w") as f:
-    json.dump(recommendations, f, indent=2)
+output = {"requestIdentifier": request_id, "accounts": accounts_list}
+
+# Save to JSON
+with open("output/trade_recommendations.json", "w") as f:
+    json.dump(output, f, indent=2)
 
 print(f"Trade recommendations saved to output/trade_recommendations.json")
-print(f"\nSample output for first account:")
-first_account = list(recommendations.keys())[0] if recommendations else None
-if first_account:
-    print(json.dumps({first_account: recommendations[first_account]}, indent=2))
+print(f"\nSample output:")
+print(
+    json.dumps(output, indent=2)[:1000] + "..."
+    if len(json.dumps(output)) > 1000
+    else json.dumps(output, indent=2)
+)
