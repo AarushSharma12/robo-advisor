@@ -25,14 +25,12 @@ class TradeRecommender:
 
     def get_filtered_accounts(self, request_id):
         """Get accounts that match the request criteria."""
-        # Find the request
         request = next(
             (r for r in self.requests if r["requestIdentifier"] == request_id), None
         )
         if not request:
             return None
 
-        # Apply filters
         processor = AccountProcessor(self.accounts_df)
         return processor.filter_by_criteria(request["accountRebalanceCriterias"])
 
@@ -73,12 +71,10 @@ class TradeRecommender:
 
     def generate_recommendations(self, request_id):
         """Generate trade recommendations for a request."""
-        # Get filtered accounts
         filtered_accounts = self.get_filtered_accounts(request_id)
         if filtered_accounts is None or filtered_accounts.empty:
             return None
 
-        # Build market lookups
         security_conditions, sector_conditions, ticker_to_sector = (
             self.build_market_lookups()
         )
@@ -90,7 +86,8 @@ class TradeRecommender:
             account_holdings = self.holdings_df[
                 self.holdings_df["AccountID"] == account_id
             ]
-            account_trades = []
+            sells = []
+            buys = []
 
             for _, row in account_holdings.iterrows():
                 ticker = row["Ticker"]
@@ -100,14 +97,25 @@ class TradeRecommender:
                     ticker, security_conditions, sector_conditions, ticker_to_sector
                 )
 
-                if trade_action != "HOLD":
-                    account_trades.append(
+                # Separate sells and buys
+                if trade_action == "SELL":
+                    sells.append(
                         {
                             "Ticker": ticker,
                             "Qty": int(current_qty),
                             "Recommended_Trade": trade_action,
                         }
                     )
+                elif trade_action == "BUY":
+                    buys.append(
+                        {
+                            "Ticker": ticker,
+                            "Qty": int(current_qty),
+                            "Recommended_Trade": trade_action,
+                        }
+                    )
+
+            account_trades = sells + buys
 
             if account_trades:
                 accounts_list.append(
