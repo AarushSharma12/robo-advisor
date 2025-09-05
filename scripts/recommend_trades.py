@@ -13,27 +13,45 @@ from scripts.data_loader import DataLoader
 def main():
     """Generate trade recommendations for a specific request."""
 
-    # Example Request ID to process
-    REQUEST_ID = "c48cd16f-ed5c-426e-a53e-c214e9136055"
-
-    # Initialize the recommender
     print("Initializing trade recommender...")
     recommender = TradeRecommender()
     recommender.initialize()
 
-    # Generate recommendations
-    print(f"Generating recommendations for request: {REQUEST_ID[:8]}...")
-    recommendations = recommender.generate_recommendations(REQUEST_ID)
+    print(f"\nFound {len(recommender.requests)} rebalance requests to process")
+    print("=" * 50)
 
-    if recommendations is None:
-        print(
-            "Error: Could not generate recommendations (request not found or no matches)"
+    total_accounts = 0
+    all_recommendations = []
+
+    for request in recommender.requests:
+        request_id = request["requestIdentifier"]
+        recommendations = recommender.generate_recommendations(request_id)
+
+        if recommendations:
+            all_recommendations.append(recommendations)
+            account_count = len(recommendations["accounts"])
+            total_accounts += account_count
+
+            # Save individual file for each request
+
+    if all_recommendations:
+        combined_output = {
+            "total_requests": len(recommender.requests),
+            "total_accounts_with_trades": total_accounts,
+            "recommendations": all_recommendations,
+        }
+
+        loader = DataLoader()
+        output_file = loader.save_json(
+            combined_output, "all_trade_recommendations.json"
         )
-        return
 
-    # Save to JSON
-    loader = DataLoader()
-    output_file = loader.save_json(recommendations, "trade_recommendations.json")
+        print("\n" + "=" * 50)
+        print(f"📁 Individual files saved for each request")
+        print(f"📁 Combined file: all_trade_recommendations.json")
+        print(
+            f"📊 Total: {total_accounts} accounts across {len(all_recommendations)} requests"
+        )
 
 
 if __name__ == "__main__":
