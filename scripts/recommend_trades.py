@@ -17,8 +17,7 @@ def main():
     recommender = TradeRecommender()
     recommender.initialize()
 
-    print(f"\nFound {len(recommender.requests)} rebalance requests to process")
-    print("=" * 50)
+    print(f"Found {len(recommender.requests)} rebalance requests to process")
 
     total_accounts = 0
     all_recommendations = []
@@ -32,8 +31,6 @@ def main():
             account_count = len(recommendations["accounts"])
             total_accounts += account_count
 
-            # Save individual file for each request
-
     if all_recommendations:
         combined_output = {
             "total_requests": len(recommender.requests),
@@ -46,11 +43,9 @@ def main():
             combined_output, "all_trade_recommendations.json"
         )
 
-        print("\n" + "=" * 50)
-        print(f"📁 Individual files saved for each request")
-        print(f"📁 Combined file: all_trade_recommendations.json")
+        print(f"Combined file: all_trade_recommendations.json")
         print(
-            f"📊 Total: {total_accounts} accounts across {len(all_recommendations)} requests"
+            f"Total: {total_accounts} accounts across {len(all_recommendations)} requests"
         )
 
 
