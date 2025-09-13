@@ -1,17 +1,21 @@
 # Portfolio Trade Recommendation System
 
-An automated Python system that generates actionable buy/sell trade recommendations for customer portfolios based on configurable filtering criteria and real-time market conditions.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](requirements.txt)
+[![pandas](https://img.shields.io/badge/pandas-2.1.3-150458.svg)](requirements.txt)
+[![numpy](https://img.shields.io/badge/numpy-1.24.3-013243.svg)](requirements.txt)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## 🎯 Overview
+An automated Python system that generates actionable buy/sell trade recommendations for customer portfolios based on configurable account filters and market conditions.
 
-This system automates portfolio rebalancing by:
+## Why it’s useful
 
-- Filtering customer accounts based on investment criteria
-- Analyzing current holdings against market conditions
-- Generating buy/sell recommendations with intelligent sector fallback
-- Exporting structured JSON for execution by trading systems
+- Automates portfolio rebalancing from raw CSV/JSON inputs
+- Flexible account filtering with multiple criteria and operators
+- Intelligent fallback to sector sentiment when security-level data is missing
+- Single-command execution producing structured JSON output for downstream systems
+- Scales to thousands of accounts and hundreds of securities
 
-## 📁 Project Structure
+## Project structure
 
 ```
 fidelity-robo/
@@ -21,58 +25,51 @@ fidelity-robo/
 │   └── market_data/
 │       ├── customer_accounts.csv        # Account profiles
 │       ├── customer_accounts_holdings.csv   # Portfolio positions
-│       ├── market_conditions.csv        # Market sentiment
-│       └── Safari55.csv                 # Security-sector mappings
+│       ├── market_conditions.csv        # Market sentiment by ticker/sector
+│       └── Safari55.csv                 # Security → sector mappings
 ├── scripts/
-│   ├── recommend_trades.py             # Main execution script
-│   ├── trade_recommender.py            # Core recommendation engine
-│   ├── account_processor.py            # Account filtering logic
-│   └── data_loader.py                  # Data I/O utilities
+│   ├── recommend_trades.py              # Main entry point
+│   ├── trade_recommender.py             # Core recommendation engine
+│   ├── account_processor.py             # Account filtering logic
+│   └── data_loader.py                   # Data I/O utilities
 ├── output/
-│   └── trade_recommendations.json      # Generated trade signals
+│   └── trade_recommendations.json       # Generated trade signals
 └── requirements.txt
 ```
 
-## 🚀 Quick Start
+Quick links:
 
-```bash
-# Install dependencies
+- Main script: [scripts/recommend_trades.py](scripts/recommend_trades.py)
+- Engine: [scripts/trade_recommender.py](scripts/trade_recommender.py)
+- Account filtering: [scripts/account_processor.py](scripts/account_processor.py)
+- Data I/O: [scripts/data_loader.py](scripts/data_loader.py)
+- Config: [data/api_data/rebalance_requests.json](data/api_data/rebalance_requests.json)
+- Sample inputs: [data/market_data](data/market_data)
+- Output: [output/trade_recommendations.json](output/trade_recommendations.json)
+- License: [LICENSE](LICENSE)
+- Requirements: [requirements.txt](requirements.txt)
+
+## Getting started
+
+### Prerequisites
+
+- Python 3.8+
+- pip
+- Windows, macOS, or Linux
+
+### Install
+
+On Windows (PowerShell):
+
+```powershell
+python -m venv .venv
+. .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-
-# Generate trade recommendations
-python scripts/recommend_trades.py
-
-# Output saved to: output/trade_recommendations.json
 ```
 
-## 💡 How It Works
+### Configure
 
-1. **Filter Accounts**: Apply multi-criteria filters from JSON configuration
-2. **Analyze Holdings**: Load current portfolio positions for filtered accounts
-3. **Check Market Conditions**: Evaluate each holding against market sentiment
-4. **Generate Trades**:
-   - **BUY**: When condition is Positive (double position)
-   - **SELL**: When condition is Negative (liquidate position)
-   - **Fallback**: Use sector condition if security-specific data unavailable
-5. **Export JSON**: Structured output ready for trading system integration
-
-## 📊 Data Flow
-
-```
-rebalance_requests.json → Filter Accounts
-                              ↓
-customer_accounts.csv → Filtered Account IDs
-                              ↓
-customer_holdings.csv → Current Positions
-                              ↓
-market_conditions.csv + Safari55.csv → Trade Decisions
-                              ↓
-                    trade_recommendations.json
-```
-
-## 🔧 Configuration
-
-### Filter Criteria (rebalance_requests.json)
+1. Set account filter criteria in [data/api_data/rebalance_requests.json](data/api_data/rebalance_requests.json). Example:
 
 ```json
 {
@@ -84,13 +81,28 @@ market_conditions.csv + Safari55.csv → Trade Decisions
 }
 ```
 
-### Supported Operators
+Supported operators:
 
-- `=` (equals)
-- `!=` (not equals)
-- `>`, `<`, `>=`, `<=` (numeric comparisons)
+- "=" (equals)
+- "!=" (not equals)
+- ">", "<", ">=", "<=" (numeric comparisons)
 
-### Output Format
+2. (Optional) If your pipeline uses distinct request IDs, update `REQUEST_ID` in [scripts/recommend_trades.py](scripts/recommend_trades.py).
+
+```python
+REQUEST_ID = "your-request-id-here"
+```
+
+### Run
+
+```powershell
+python scripts/recommend_trades.py
+```
+
+- Input files are read from [data/market_data](data/market_data) and [data/api_data](data/api_data).
+- Output is written to [output/trade_recommendations.json](output/trade_recommendations.json).
+
+### Example output
 
 ```json
 {
@@ -107,26 +119,27 @@ market_conditions.csv + Safari55.csv → Trade Decisions
 }
 ```
 
-## 📈 Performance
+## How it works
+
+1. Filter Accounts: load [data/api_data/rebalance_requests.json](data/api_data/rebalance_requests.json) and apply multi-criteria filters to [data/market_data/customer_accounts.csv](data/market_data/customer_accounts.csv).
+2. Analyze Holdings: read positions from [data/market_data/customer_accounts_holdings.csv](data/market_data/customer_accounts_holdings.csv).
+3. Check Market Conditions: join with [data/market_data/market_conditions.csv](data/market_data/market_conditions.csv), falling back to sector sentiment using [data/market_data/Safari55.csv](data/market_data/Safari55.csv) when needed.
+4. Generate Trades:
+   - BUY: Positive condition (e.g., increase position)
+   - SELL: Negative condition (e.g., reduce/liquidate)
+   - Fallback: Sector-level condition if ticker sentiment is unavailable
+5. Export JSON: write to [output/trade_recommendations.json](output/trade_recommendations.json).
+
+## Performance
 
 - Processes 10,000+ accounts in seconds
 - Analyzes 500+ securities with sector fallback
-- Generates complete portfolio rebalancing in one execution
+- Single-pass generation of trade recommendations
 
-## 🛠️ Customization
+## Maintainers
 
-To process a different request, modify the `REQUEST_ID` in `recommend_trades.py`:
+Maintained by Aarush Sharma
 
-```python
-REQUEST_ID = "your-request-id-here"
-```
+## License
 
-## 📋 Requirements
-
-- Python 3.8+
-- pandas 2.1.3
-- numpy 1.24.3
-
-## 🔐 License
-
-MIT License - see [LICENSE](LICENSE) file
+MIT — see [LICENSE](LICENSE)
