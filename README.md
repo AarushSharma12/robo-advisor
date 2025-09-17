@@ -143,3 +143,59 @@ Maintained by Aarush Sharma
 ## License
 
 MIT — see [LICENSE](LICENSE)
+
+### Secrets (Google Gemini API key)
+
+Prefer a local .env file (ignored by git):
+
+Create c:\Users\aarus\robo-advisor\.env with:
+
+```
+GOOGLE_API_KEY=YOUR_API_KEY
+# Optional:
+GOOGLE_GEMINI_MODEL=gemini-1.5-flash
+```
+
+Precedence:
+
+1. --key
+2. OS env GOOGLE_API_KEY (including values loaded from .env or --env-file)
+3. --key-file or GOOGLE_API_KEY_FILE
+
+Examples (PowerShell):
+
+```powershell
+# Using .env
+'GOOGLE_API_KEY=YOUR_API_KEY' | Out-File -FilePath .env -Encoding utf8 -NoNewline
+python scripts\gemini_sentiment.py -f data\articles\article1.txt
+
+# Using a custom env file
+python scripts\gemini_sentiment.py -f data\articles\article1.txt --env-file .config\dev.env
+
+# Using an explicit key file (no defaults)
+python scripts\gemini_sentiment.py -f data\articles\article1.txt --key-file C:\path\to\google_api_key.txt
+```
+
+### Test LLM sentiment extraction
+
+Use the built-in CLI to extract sentiments from an article (uses .env for GOOGLE_API_KEY):
+
+```powershell
+python scripts\gemini_sentiment.py -f data\articles\article1.txt
+```
+
+Expected output shape (Neutral supported):
+
+```json
+{
+  "entities": [
+    { "name": "AAPL", "type": "Company", "sentiment": "Positive" },
+    { "name": "Energy Sector", "type": "Sector", "sentiment": "Neutral" }
+  ]
+}
+```
+
+Notes:
+
+- Company names must be tickers (uppercase); Sectors may include “Sector”.
+- In trade generation, Neutral is treated as HOLD.
