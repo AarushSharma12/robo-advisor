@@ -136,53 +136,86 @@ python scripts/recommend_trades.py
 - Analyzes 500+ securities with sector fallback
 - Single-pass generation of trade recommendations
 
-## Maintainers
+### Performance and quality tips
 
-Maintained by Aarush Sharma
+- Use OpenAI models for accuracy vs speed:
+  - Quality: python scripts\openai_sentiment.py -f data\articles\article1.txt --quality quality
+  - Speed: python scripts\openai_sentiment.py -f data\articles\article1.txt --quality speed
+  - Or set a specific model: --model gpt-4o
+- Set a timeout to avoid stalls: --timeout 20
+- Skip the second retry for speed when acceptable: --no-retry
+- Enable on-disk cache (default) to avoid re-calling the LLM for the same article; disable via --no-cache
 
-## License
-
-MIT — see [LICENSE](LICENSE)
-
-### Secrets (Google Gemini API key)
+### Secrets (OpenAI API key)
 
 Prefer a local .env file (ignored by git):
 
 Create c:\Users\aarus\robo-advisor\.env with:
 
 ```
-GOOGLE_API_KEY=YOUR_API_KEY
+OPENAI_API_KEY=YOUR_OPENAI_API_KEY
 # Optional:
-GOOGLE_GEMINI_MODEL=gemini-1.5-flash
+OPENAI_MODEL=gpt-4o
+# or choose a preset via quality flag:
+# OPENAI_QUALITY=quality  # speed | balanced | quality
+# OPENAI_TIMEOUT=20
 ```
 
 Precedence:
 
 1. --key
-2. OS env GOOGLE_API_KEY (including values loaded from .env or --env-file)
-3. --key-file or GOOGLE_API_KEY_FILE
+2. OS env OPENAI_API_KEY (including values loaded from .env or --env-file)
+3. --key-file or OPENAI_API_KEY_FILE
 
 Examples (PowerShell):
 
 ```powershell
 # Using .env
-'GOOGLE_API_KEY=YOUR_API_KEY' | Out-File -FilePath .env -Encoding utf8 -NoNewline
-python scripts\gemini_sentiment.py -f data\articles\article1.txt
+'OPENAI_API_KEY=YOUR_OPENAI_API_KEY' | Out-File -FilePath .env -Encoding utf8 -NoNewline
+python scripts\openai_sentiment.py -f data\articles\article1.txt --quality quality
 
 # Using a custom env file
-python scripts\gemini_sentiment.py -f data\articles\article1.txt --env-file .config\dev.env
+python scripts\openai_sentiment.py -f data\articles\article1.txt --env-file .config\dev.env
 
 # Using an explicit key file (no defaults)
-python scripts\gemini_sentiment.py -f data\articles\article1.txt --key-file C:\path\to\google_api_key.txt
+python scripts\openai_sentiment.py -f data\articles\article1.txt --key-file C:\path\to\openai_api_key.txt
 ```
 
 ### Test LLM sentiment extraction
 
-Use the built-in CLI to extract sentiments from an article (uses .env for GOOGLE_API_KEY):
+Use the built-in CLI to extract sentiments from an article (uses .env for OPENAI_API_KEY):
+
+```powershell
+python scripts\openai_sentiment.py -f data\articles\article1.txt
+```
+
+Expected output shape:
+
+```json
+{
+  "entities": [
+    { "name": "AAPL", "type": "Company", "sentiment": "Positive" },
+    { "name": "Energy Sector", "type": "Sector", "sentiment": "Neutral" }
+  ]
+}
+```
+
+Notes:
+
+- Company names must be tickers (uppercase); Sectors may include “Sector”.
+- In trade generation, Neutral is treated as HOLD.
+  ]
+  }
+
+````
+
+Notes:
+
+- Company names must be tickers (uppercase); Sectors may include “Sector”.
 
 ```powershell
 python scripts\gemini_sentiment.py -f data\articles\article1.txt
-```
+````
 
 Expected output shape (Neutral supported):
 
